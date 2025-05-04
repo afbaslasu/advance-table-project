@@ -66,18 +66,23 @@ function startEdit(test) {
   const row = $(`.test-row-${test.id}`);
   row.addClass("editing");
   const resultCell = row.find(".result-cell");
-  const originalValue = resultCell.text();
+  const originalValue = resultCell.text().trim();
 
   resultCell.html(`
-        <input type="text" class="form-control edit-input" 
-               value="${originalValue}">
-        <div class="btn-group mt-2">
-            <button class="btn btn-sm btn-success btn-save"><i class="fas fa-check"></i></button>
-            <button class="btn btn-sm btn-secondary btn-cancel"><i class="fas fa-times"></i></button>
-        </div>
-    `);
+    <input type="text" class="form-control edit-input" 
+           value="${originalValue}">
+    <div class="btn-group mt-2">
+      <button class="btn btn-sm btn-success btn-save">
+        <i class="fas fa-check"></i>
+      </button>
+      <button class="btn btn-sm btn-secondary btn-cancel">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  `);
 
-  row.find(".btn-save").on("click", async () => {
+  // Use event delegation for dynamic elements
+  row.off("click.save").on("click", ".btn-save", async () => {
     const newValue = row.find(".edit-input").val();
     if (newValue !== originalValue) {
       await updateTest(test.id, { result: newValue });
@@ -85,10 +90,5 @@ function startEdit(test) {
     cancelEdit(row);
   });
 
-  row.find(".btn-cancel").on("click", () => cancelEdit(row));
-}
-
-function cancelEdit(row) {
-  row.removeClass("editing");
-  renderTable(); // Re-render the row from state
+  row.off("click.cancel").on("click", ".btn-cancel", () => cancelEdit(row));
 }
