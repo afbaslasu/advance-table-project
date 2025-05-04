@@ -2,6 +2,7 @@ import { getState, updateState } from "./stateManager.js";
 import { addTest, deleteTest, updateTest } from "./tableManager.js";
 import { validateTestForm, showAlert } from "./utils/validators.js";
 import { fadeIn, fadeOut } from "./utils/animations.js";
+import { renderTable } from "./tableManager.js";
 
 export function initializeApp() {
   // Form Toggle
@@ -14,7 +15,8 @@ export function initializeApp() {
   });
 
   // Create Test
-  $("#create-test").on("click", async () => {
+  $("#create-test").on("click", async (e) => {
+    e.preventDefault();
     const testData = {
       name: $("#test-name").val(),
       result: $("#test-result").val(),

@@ -1,6 +1,6 @@
 import { initializeApp } from "./eventHandlers.js";
 import { initializeState } from "./stateManager.js";
-import AOS from "https://unpkg.com/aos@2.3.1/dist/aos.js";
+// import AOS from "aos";
 
 // Initialize animation library
 // AOS.init({ duration: 800 });

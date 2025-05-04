@@ -9,6 +9,7 @@ let state = {
   itemsPerPage: 5,
   searchQuery: "",
   filterStatus: "",
+  totalItems: 2, // Add this line
 };
 
 export function initializeState() {

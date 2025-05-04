@@ -1,6 +1,6 @@
 import { getState, updateState } from "./stateManager.js";
 import { formatResult, showAlert } from "./utils/validators.js";
-import { fadeIn, fadeOut } from "./utils/animations.js";
+// import { fadeIn, fadeOut } from "./utils/animations.js";
 
 let editTimeout;
 
