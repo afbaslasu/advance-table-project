@@ -1,0 +1,36 @@
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.table-hover tbody tr:hover {
+  transform: translateX(5px);
+  transition: transform 0.2s ease;
+}
+
+.editing {
+  background-color: rgba(255, 243, 205, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  min-width: 300px;
+}
+
+.edit-input {
+  max-width: 120px;
+  display: inline-block;
+}
+
+.badge {
+  font-size: 0.9em;
+  padding: 0.5em 0.75em;
+}
