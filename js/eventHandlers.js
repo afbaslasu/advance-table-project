@@ -41,7 +41,7 @@ export function initializeApp() {
 
   // Delete Handler
   $("#confirm-delete").on("click", function () {
-    const testId = $(this).data("testId");
+    const testId = $(this).data("id"); // Changed to "id"
     if (testId) {
       deleteTest(testId);
       $("#deleteModal").modal("hide");
@@ -58,7 +58,7 @@ $(document).on("click", ".btn-edit", function () {
 
 $(document).on("click", ".btn-delete", function () {
   const testId = $(this).data("id");
-  $("#confirm-delete").data("testId", testId);
+  $("#confirm-delete").data("id", testId); // Changed to "id"
   $("#deleteModal").modal("show");
 });
 

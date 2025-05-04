@@ -16,14 +16,16 @@ export function formatResult(result) {
 
 export function showAlert(message, type = "info") {
   const alert = $(`
-        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
-            ${message}
-            <button type="button" class="close" data-dismiss="alert">
-                <span>&times;</span>
-            </button>
-        </div>
-    `);
+    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        ${message}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  `);
 
-  $("#form-container").before(alert);
-  setTimeout(() => alert.alert("close"), 3000);
+  // Add to alert container instead of before form
+  $("#alert-container").html(alert);
+
 }
+
